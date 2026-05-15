@@ -1,0 +1,369 @@
+/* =========================================================
+   GLOBAL
+   ========================================================= */
+* {
+    font-family: "Segoe UI", "Consolas", monospace;
+    font-size: 12px;
+    color: #C8D8FF;
+    outline: none;
+}
+
+QMainWindow, QWidget {
+    background-color: #07090F;
+}
+
+/* =========================================================
+   CONTROL PANEL — левая боковая панель
+   ========================================================= */
+#controlPanel {
+    background: qlineargradient(
+        x1:0, y1:0, x2:1, y2:0,
+        stop:0 #0A0D1C,
+        stop:1 #080B16
+    );
+    border-right: 1px solid #1C2140;
+}
+
+/* =========================================================
+   GROUP BOXES
+   ========================================================= */
+QGroupBox {
+    background-color: transparent;
+    border: 1px solid #1C2445;
+    border-radius: 8px;
+    margin-top: 14px;
+    padding: 12px 8px 10px 8px;
+}
+
+QGroupBox::title {
+    subcontrol-origin: margin;
+    subcontrol-position: top left;
+    left: 12px;
+    padding: 0 5px;
+    font-size: 10px;
+    font-weight: bold;
+    letter-spacing: 2px;
+    color: #3A4E8A;
+    background-color: transparent;
+}
+
+#fileGroup {
+    border-color: #2A1A50;
+}
+#fileGroup::title   { color: #7040CC; }
+
+#normGroup {
+    border-color: #002A40;
+}
+#normGroup::title   { color: #008AB5; }
+
+#moveGroup {
+    border-color: #3A2000;
+}
+#moveGroup::title   { color: #BB6600; }
+
+#rotateGroup {
+    border-color: #380030;
+}
+#rotateGroup::title { color: #CC0099; }
+
+#scaleGroup {
+    border-color: #003020;
+}
+#scaleGroup::title  { color: #009955; }
+
+/* =========================================================
+   LABELS
+   ========================================================= */
+QLabel {
+    color: #5A6A9A;
+    font-size: 11px;
+    background: transparent;
+}
+
+#moveXLabel, #rotXLabel, #scaleXLabel {
+    color: #FF3355;
+    font-weight: bold;
+    font-size: 12px;
+}
+
+#moveYLabel, #rotYLabel, #scaleYLabel {
+    color: #00EE77;
+    font-weight: bold;
+    font-size: 12px;
+}
+
+#moveZLabel, #rotZLabel, #scaleZLabel {
+    color: #00AAFF;
+    font-weight: bold;
+    font-size: 12px;
+}
+
+/* =========================================================
+   LINE EDITS
+   ========================================================= */
+QLineEdit {
+    background-color: #070910;
+    border: 1px solid #181E38;
+    border-radius: 5px;
+    padding: 5px 8px;
+    color: #8AAAD0;
+    font-size: 12px;
+    selection-background-color: #00BFFF;
+    selection-color: #000;
+}
+
+QLineEdit:focus {
+    border: 1px solid #2A4080;
+    color: #C8DEFF;
+    background-color: #090C18;
+}
+
+QLineEdit:read-only {
+    background-color: #060709;
+    color: #303855;
+    border-color: #101525;
+}
+
+/* =========================================================
+   BUTTONS — BASE (fallback)
+   ========================================================= */
+QPushButton {
+    background-color: #0D1020;
+    border: 1px solid #252E55;
+    border-radius: 5px;
+    padding: 4px 10px;
+    color: #7080B0;
+    font-size: 11px;
+    font-weight: bold;
+    letter-spacing: 1.5px;
+    min-height: 22px;
+}
+
+QPushButton:hover  { border-color: #4060AA; color: #99AADD; }
+QPushButton:pressed { background-color: #080C18; padding-top: 8px; }
+
+/* =========================================================
+   BROWSE — фиолетовый неон
+   ========================================================= */
+#browseButton {
+    background: qlineargradient(x1:0,y1:0,x2:0,y2:1,
+        stop:0 #180A38, stop:1 #0E0622);
+    border: 1.5px solid #7700EE;
+    border-radius: 5px;
+    color: #CC88FF;
+    letter-spacing: 2px;
+    min-height: 22px;
+    padding: 4px 10px;
+}
+
+#browseButton:hover {
+    background: qlineargradient(x1:0,y1:0,x2:0,y2:1,
+        stop:0 #220E50, stop:1 #160A30);
+    border-color: #AA44FF;
+    border-top-color: #CC66FF;
+    color: #DDAAFF;
+}
+
+#browseButton:pressed {
+    background-color: #0A0518;
+    border-color: #5500AA;
+    color: #9966CC;
+    padding-top: 8px;
+}
+
+/* =========================================================
+   LOAD — голубой неон
+   ========================================================= */
+#loadButton {
+    background: qlineargradient(x1:0,y1:0,x2:0,y2:1,
+        stop:0 #00203A, stop:1 #001525);
+    border: 1.5px solid #0088CC;
+    border-radius: 5px;
+    color: #00DDFF;
+    letter-spacing: 2px;
+    min-height: 24px;
+    padding: 4px 10px;
+    font-size: 11px;
+}
+
+#loadButton:hover {
+    background: qlineargradient(x1:0,y1:0,x2:0,y2:1,
+        stop:0 #002A4E, stop:1 #001C35);
+    border-color: #00BBFF;
+    border-top-color: #44DDFF;
+    color: #66EEFF;
+}
+
+#loadButton:pressed {
+    background-color: #000E1A;
+    border-color: #006699;
+    color: #009ABB;
+    padding-top: 9px;
+}
+
+/* =========================================================
+   MOVE — оранжевый неон
+   ========================================================= */
+#moveButton {
+    background: qlineargradient(x1:0,y1:0,x2:0,y2:1,
+        stop:0 #251400, stop:1 #160C00);
+    border: 1.5px solid #CC5500;
+    border-radius: 5px;
+    color: #FF9900;
+    letter-spacing: 2px;
+    min-height: 22px;
+    padding: 4px 10px;
+}
+
+#moveButton:hover {
+    background: qlineargradient(x1:0,y1:0,x2:0,y2:1,
+        stop:0 #321A00, stop:1 #1E1000);
+    border-color: #FF7700;
+    border-top-color: #FFAA22;
+    color: #FFCC44;
+}
+
+#moveButton:pressed {
+    background-color: #0E0800;
+    border-color: #994400;
+    color: #CC7700;
+    padding-top: 8px;
+}
+
+/* =========================================================
+   ROTATE — розовый/маджента неон
+   ========================================================= */
+#rotateButton {
+    background: qlineargradient(x1:0,y1:0,x2:0,y2:1,
+        stop:0 #280022, stop:1 #180012);
+    border: 1.5px solid #CC0088;
+    border-radius: 5px;
+    color: #FF44CC;
+    letter-spacing: 2px;
+    min-height: 22px;
+    padding: 4px 10px;
+}
+
+#rotateButton:hover {
+    background: qlineargradient(x1:0,y1:0,x2:0,y2:1,
+        stop:0 #35002E, stop:1 #210018);
+    border-color: #FF00AA;
+    border-top-color: #FF55CC;
+    color: #FF88DD;
+}
+
+#rotateButton:pressed {
+    background-color: #100010;
+    border-color: #990066;
+    color: #CC3399;
+    padding-top: 8px;
+}
+
+/* =========================================================
+   SCALE — зелёный неон
+   ========================================================= */
+#scaleButton {
+    background: qlineargradient(x1:0,y1:0,x2:0,y2:1,
+        stop:0 #002818, stop:1 #001810);
+    border: 1.5px solid #009944;
+    border-radius: 5px;
+    color: #00FF88;
+    letter-spacing: 2px;
+    min-height: 22px;
+    padding: 4px 10px;
+}
+
+#scaleButton:hover {
+    background: qlineargradient(x1:0,y1:0,x2:0,y2:1,
+        stop:0 #003522, stop:1 #002016);
+    border-color: #00CC66;
+    border-top-color: #44FF99;
+    color: #55FFAA;
+}
+
+#scaleButton:pressed {
+    background-color: #000E08;
+    border-color: #007733;
+    color: #009955;
+    padding-top: 8px;
+}
+
+/* =========================================================
+   SEPARATOR
+   ========================================================= */
+#separator {
+    background-color: #141830;
+    max-width: 1px;
+    border: none;
+    color: #141830;
+}
+
+/* =========================================================
+   VIEWPORT
+   ========================================================= */
+#viewportPanel {
+    background-color: #05070F;
+}
+
+QGraphicsView {
+    background-color: #04060D;
+    border: none;
+}
+
+/* =========================================================
+   SCROLLBARS
+   ========================================================= */
+QScrollBar:vertical {
+    background: #07090F;
+    width: 7px;
+    border: none;
+}
+QScrollBar::handle:vertical {
+    background: #1A2040;
+    border-radius: 3px;
+    min-height: 20px;
+}
+QScrollBar::handle:vertical:hover { background: #00BFFF; }
+QScrollBar::add-line:vertical, QScrollBar::sub-line:vertical { height: 0px; }
+
+QScrollBar:horizontal {
+    background: #07090F;
+    height: 7px;
+    border: none;
+}
+QScrollBar::handle:horizontal {
+    background: #1A2040;
+    border-radius: 3px;
+    min-width: 20px;
+}
+QScrollBar::handle:horizontal:hover { background: #00BFFF; }
+QScrollBar::add-line:horizontal, QScrollBar::sub-line:horizontal { width: 0px; }
+
+/* =========================================================
+   DIALOGS
+   ========================================================= */
+QMessageBox {
+    background-color: #0A0D1C;
+}
+QMessageBox QLabel {
+    color: #C8D8FF;
+    font-size: 13px;
+}
+QMessageBox QPushButton {
+    min-width: 80px;
+    padding: 6px 16px;
+}
+
+QToolTip {
+    background-color: #0D1025;
+    border: 1px solid #00BFFF;
+    color: #00DDFF;
+    padding: 4px 8px;
+    border-radius: 3px;
+}
+
+QFileDialog {
+    background-color: #0A0D1C;
+    color: #C8D8FF;
+}
