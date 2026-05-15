@@ -425,7 +425,7 @@
        <number>0</number>
       </property>
       <item>
-       <widget class="QGraphicsView" name="graphicsView">
+       <widget class="InteractiveGraphicsView" name="graphicsView">
         <property name="frameShape">
          <enum>QFrame::Shape::NoFrame</enum>
         </property>
@@ -439,6 +439,13 @@
    </layout>
   </widget>
  </widget>
- <resources/>
+ <customwidgets>
+   <customwidget>
+    <class>InteractiveGraphicsView</class>
+    <extends>QGraphicsView</extends>
+    <header>InteractiveGraphicsView.h</header>
+   </customwidget>
+  </customwidgets>
+  <resources/>
  <connections/>
 </ui>

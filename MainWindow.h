@@ -6,6 +6,7 @@
 #include "Facade.h"
 #include "QtSceneDrawer.h"
 #include "FileReader.h"
+#include "InteractiveGraphicsView.h"
 
 QT_BEGIN_NAMESPACE
 namespace Ui { class MainWindow; }
@@ -42,6 +43,10 @@ private:
     void OnMoveClicked();
     void OnRotateClicked();
     void OnScaleClicked();
+
+    void OnMouseMove(float dx, float dy);
+    void OnMouseRotate(float rx, float ry);
+    void OnMouseScale(float factor);
 
 public:
     explicit MainWindow(QWidget* parent = nullptr);

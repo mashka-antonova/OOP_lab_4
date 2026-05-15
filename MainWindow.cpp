@@ -40,6 +40,13 @@ void MainWindow::SetupConnections() {
           &MainWindow::OnRotateClicked);
   connect(ui->scaleButton, &QPushButton::clicked, this,
           &MainWindow::OnScaleClicked);
+
+  connect(ui->graphicsView, &InteractiveGraphicsView::mouseMoveRequested,
+          this, &MainWindow::OnMouseMove);
+  connect(ui->graphicsView, &InteractiveGraphicsView::mouseRotateRequested,
+          this, &MainWindow::OnMouseRotate);
+  connect(ui->graphicsView, &InteractiveGraphicsView::mouseScaleRequested,
+          this, &MainWindow::OnMouseScale);
 }
 
 NormalizationParameters MainWindow::ReadNormalizationParams() const {
@@ -110,6 +117,30 @@ void MainWindow::OnScaleClicked() {
   float y = ui->scaleYEdit->text().toFloat();
   float z = ui->scaleZEdit->text().toFloat();
   FacadeOperationResult res = facade->ScaleScene(x, y, z);
+  HandleFacadeResult(res);
+  if (!res.IsSuccess())
+    return;
+  HandleFacadeResult(facade->DrawScene());
+}
+
+void MainWindow::OnMouseMove(float dx, float dy) {
+  FacadeOperationResult res = facade->MoveScene(dx, dy, 0.0f);
+  HandleFacadeResult(res);
+  if (!res.IsSuccess())
+    return;
+  HandleFacadeResult(facade->DrawScene());
+}
+
+void MainWindow::OnMouseRotate(float rx, float ry) {
+  FacadeOperationResult res = facade->RotateScene(rx, ry, 0.0f);
+  HandleFacadeResult(res);
+  if (!res.IsSuccess())
+    return;
+  HandleFacadeResult(facade->DrawScene());
+}
+
+void MainWindow::OnMouseScale(float factor) {
+  FacadeOperationResult res = facade->ScaleScene(factor, factor, factor);
   HandleFacadeResult(res);
   if (!res.IsSuccess())
     return;

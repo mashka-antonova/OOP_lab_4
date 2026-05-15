@@ -16,7 +16,8 @@ SOURCES += \
     Figure.cpp \
     Scene.cpp \
     TransformMatrix.cpp \
-    TransformMatrixBuilder.cpp
+    TransformMatrixBuilder.cpp \
+    InteractiveGraphicsView.cpp
 
 HEADERS += \
     MainWindow.h \
@@ -33,7 +34,8 @@ HEADERS += \
     SceneObject.h \
     SceneDrawerBase.h \
     TransformMatrix.h \
-    TransformMatrixBuilder.h
+    TransformMatrixBuilder.h \
+    InteractiveGraphicsView.h
 
 FORMS += \
     MainWindow.ui
